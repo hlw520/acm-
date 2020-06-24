@@ -1,0 +1,34 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,n,k,T,sc[2020];
+	char t,sr[1010];
+	scanf("%d",&T);
+	while(T--)
+	{
+		scanf("%s",sr);
+		t=sr[0];n=1;k=0;
+		for(i=1;sr[i]!='\0';i++)
+		{
+			if(sr[i]!=t)
+			{
+			 sc[k]=n;
+			 sc[k+1]=t-'0';
+			 k=k+2;
+			 n=1;
+			 t=sr[i];
+			}
+			else
+			n++;
+		}
+		sc[k]=n;
+        sc[k+1]=t-'0';
+        k=k+2;
+        for(i=0;i<k;i++)
+           printf("%d",sc[i]);
+        printf("\n");
+	
+	}
+	
+return 0;
+}

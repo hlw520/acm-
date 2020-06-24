@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct book
+{
+	char name[90];
+	int ye;
+	int pr;
+}s[110];
+int cmp(const void *a , const void *b)
+{
+	if((*(book*)a).ye==(*(book*)b).ye)
+{
+    int t=strcmp((*(book*)a).name,(*(book*)b).name);
+    if(t==0)
+     return (*(book*)a).pr>(*(book*)b).pr;
+    else
+        return t;
+}
+	else
+	return (*(book*)a).ye>(*(book*)b).ye;
+}
+int pra(const void *a , const void *b)
+{
+	if((*(book *)a).pr==(*(book *)b).pr)
+	{
+		int t=strcmp((*(book*)a).name,(*(book*)b).name);
+		if(t==0)
+		{
+			return (*(book *)a).ye > (*(book *)b).ye; 
+		}
+		else
+			return t;
+	}
+	else
+		return (*(book *)a).pr > (*(book *)b).pr; 
+}
+int namea(const void *a , const void *b)
+{
+	int t=strcmp((*(book*)a).name,(*(book*)b).name);
+	if(t==0)
+	{
+		if((*(book *)a).ye==(*(book *)b).ye)
+			return (*(book *)a).pr > (*(book *)b).pr; 
+		else
+			return (*(book *)a).ye > (*(book *)b).ye;
+	}
+	else
+		return t; 
+}
+int main()
+{
+	char sr[200];
+	int i,j,k,l,m,nn,mm,T,n,t,xx,len;
+	xx=0;
+	while(scanf("%d",&n),n)
+	{
+		if(xx!=0)
+			printf("\n");
+		xx++;
+		
+		T=n;
+		while(T--)
+		{
+			scanf("%s %d %d",s[T].name,&s[T].ye,&s[T].pr);
+		}
+		scanf("%s",sr);
+		if(strcmp("Year",sr)==0)
+			qsort(s,n,sizeof(book),cmp); 
+		else
+			if(strcmp("Price",sr)==0)
+				qsort(s,n,sizeof(book),pra);
+			else
+				qsort(s,n,sizeof(book),namea);
+			
+			for(i=0;i<n;i++)
+				printf("%s %d %d\n",s[i].name,s[i].ye,s[i].pr);
+			
+	}
+	
+	return 0;
+}

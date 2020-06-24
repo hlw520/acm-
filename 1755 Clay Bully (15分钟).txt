@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i,x,y,h,max,min;
+	char name[10],maxna[10],minna[10];
+	while(scanf("%d",&i),i!=-1)
+	{
+		
+		scanf("%d%d%d%s",&x,&y,&h,name);
+		max=x*y*h;min=max;
+		strcpy(maxna,name);
+		strcpy(minna,name);
+		min=x*y*h;
+		i--;
+		while(i--)
+		{
+		 scanf("%d%d%d%s",&x,&y,&h,name);
+		 if(x*y*h>max)
+		 {
+		  max=x*y*h;
+		  strcpy(maxna,name);
+		 }
+		 if(x*y*h<min)
+		 {
+		  min=x*y*h;
+		  strcpy(minna,name);
+		 }
+		}
+		printf("%s took clay from %s.\n",maxna,minna);
+	}
+return 0;
+}

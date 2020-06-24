@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+	int i,a,b,c,a1,a2;
+	scanf("%d",&i);
+	while(i--)
+	{
+	 scanf("%d%d%d",&a,&b,&c);
+	 a1=a*10000+b*100+c;
+	 scanf("%d%d%d",&a,&b,&c);
+	 a2=a*10000+b*100+c;
+	 if(a1>a2)
+	 printf("cpcs\n");
+	 else
+	 {
+	 if(a1==a2)
+	 printf("same\n");
+	 else
+	 printf("javaman\n");
+	}
+	}
+return 0;
+}

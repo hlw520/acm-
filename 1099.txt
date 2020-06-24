@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i,j,len,n,lon;
+	char sr[1000],dc[1000],srr[1000];
+	n=0;len=0;
+
+	while(cin>>dc)
+	{
+		if(strcmp(dc,"<br>")==0)
+		{
+			printf("\n");len=0;
+		}
+		else
+			if(strcmp(dc,"<hr>")==0)
+			{
+				if(len!=0)
+					printf("\n--------------------------------------------------------------------------------\n");
+				else
+					printf("--------------------------------------------------------------------------------\n");
+				len=0;
+			}
+			else
+			{
+				if((len+strlen(dc)+1)<=80)
+				{
+					if(len!=0)
+						printf(" ");
+					printf("%s",dc);
+					len+=strlen(dc);
+					len++;
+				}
+				else
+				{
+					printf("\n%s",dc);
+					len=strlen(dc);
+				}
+			}
+	}
+	printf("\n");
+	return 0;
+}

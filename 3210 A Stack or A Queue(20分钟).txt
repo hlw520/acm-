@@ -1,0 +1,37 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,T,n,sr[2][110],N,dui,lie;
+	scanf("%d",&T);
+	while(T--)
+	{
+		dui=1;lie=1;
+		scanf("%d",&n);
+		N=n;
+		while(N--)
+		  scanf("%d",&sr[0][N]);
+        	N=n;
+		while(N--)
+		  scanf("%d",&sr[1][N]);
+        for(i=0,j=n-1;i<j;i++,j--)
+		{
+		 if(sr[0][i]!=sr[1][i])
+		   lie=0;
+         if(sr[0][i]!=sr[1][j])
+           dui=0;
+		} 
+		if(dui&&lie)
+		  printf("both\n");
+		  else
+		  if(dui==0&&lie==0)
+		  printf("neither\n");
+		  else
+		  if(dui==1&&lie==0)
+		  printf("stack\n");
+		  else
+		  if(dui==0&&lie==1)
+		  printf("queue\n");
+	}
+	
+return 0;
+}

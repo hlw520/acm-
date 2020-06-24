@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i,j,k,n,m,T,t;
+	char sr[90],sc[200][5];
+	while(gets(sr),sr[0]!='*')
+	{
+		n=strlen(sr);
+		m=1;
+        T=n-1;
+       
+		if(n!=1)
+		{
+			t=0;
+			while(T--)
+			{
+				t++;
+		for(i=0;sr[i+t]!='\0';i++)
+		{
+			sc[i][0]=sr[i];
+			sc[i][1]=sr[i+t];
+			sc[i][2]='\0';
+		}
+		i--;
+		for(j=0;j<i;j++)
+		{
+		   for(k=j+1;k<=i;k++)
+		     if(strcmp(sc[j],sc[k])==0)
+		       {
+			    m=0;break;
+			   }
+		   if(!m)
+		      break;
+		}
+		if(!m)
+		 break;
+			}
+        
+        
+		}
+		   if(!m)
+		     printf("%s is NOT surprising.\n",sr);
+           else
+             printf("%s is surprising.\n",sr);
+	
+	}
+return 0;
+}

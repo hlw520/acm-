@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+	
+	int y,m,i,j,day,t,d;
+	scanf("%d",&t);
+	while(t--)
+	{
+	  scanf("%d%d",&y,&m);
+	  if((y+m)%2==1||y<m)
+	    printf("impossible\n");
+      else
+         printf("%d %d\n",(y+m)/2,(y-m)/2);
+	  
+	}
+return 0;
+}

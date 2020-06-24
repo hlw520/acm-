@@ -1,0 +1,221 @@
+#include<stdio.h>
+#include<string.h>
+int m,last;
+
+int main()
+{
+	int T,n;
+	scanf("%d",&T);
+	while(T--)
+	{
+		char sr[110],sc[110],temp;
+		scanf("%s",sr);
+		scanf("%d",&n);
+		while(n--)
+		{
+			int i,j,tf,one,two,l,TF,jw=0;
+			l=strlen(sr);
+			tf=0;
+			one=-1;two=-1;m=0;
+			for(i=l-1;i>=0;i--)
+			{
+				if((sr[i]>='0'&&sr[i]<='9')||(sr[i]>='A'&&sr[i]<='Z')||(sr[i]>='a'&&sr[i]<='z'))
+				{
+					if(two==-1)
+					if(tf)
+						two=i;
+					else
+						one=i;
+					tf=1;
+					last=i;
+				}
+			}
+			if(tf)
+			{
+				
+				if(two==-1)
+				{	
+					TF=0;
+					for(i=l-1;i>=0;i--)
+					{
+						if(((sr[i]>='0'&&sr[i]<='9')||(sr[i]>='A'&&sr[i]<='Z')||(sr[i]>='a'&&sr[i]<='z'))&&(TF==0))
+						{
+							temp=sr[i];
+							if(temp=='9')
+							{sc[m]='0';m++;sc[m]='1';m++;}
+							else
+								if(temp=='Z')
+								{sc[m]='A';m++;sc[m]='A';m++;}
+								else
+									if(temp=='z')
+									{sc[m]='a';m++;sc[m]='a';m++;}
+									else
+									{
+										sc[m]=temp+1;m++;
+									}
+									TF=1;
+						}
+						else
+						{
+							sc[m]=sr[i];m++;
+						}
+						
+					}
+					sc[m]='\0';
+					int sss=0;
+					for(i=m-1;i>=0;i--)
+					{
+						sr[sss]=sc[i];sss++;
+					}
+					sr[sss]='\0';
+					printf("%s\n",sr);
+				}
+				else
+				{
+					TF=0;
+					for(i=l-1;i>=0;i--)
+					{
+						if(i==one&&TF==0)
+						{
+							temp=sr[i];
+							if(temp=='9')
+							{jw=1;sc[m]='0';m++;{
+	for(j=i-1;j>=last&&jw;j--)
+	{
+		temp=sr[j];
+	 if((sr[j]>='0'&&sr[j]<='9')||(sr[j]>='A'&&sr[j]<='Z')||(sr[j]>='a'&&sr[j]<='z'))
+	 {
+		if(temp=='9')
+		{sc[m]='0';m++;}
+		else
+		if(temp=='Z')
+		{sc[m]='A';m++;}
+		else
+		if(temp=='z')
+		{sc[m]='a';m++;}
+		else
+		{
+		sc[m]=temp+1;m++;jw=0;
+		}
+	 }
+	 else
+	 {	sc[m]=sr[j];m++;}
+	}
+	if(jw)
+	  {
+	  	if(sr[last]=='z')
+	       {sc[m]='a';m++;}
+	     if(sr[last]=='Z')
+	       {sc[m]='A';m++;}  
+	       if(sr[last]=='9')
+	       {sc[m]='1';m++;}
+	       jw=0;
+	  }
+i=j+1;
+}}
+							else
+								if(temp=='Z')
+								{jw=1;sc[m]='A';m++;{
+	for(j=i-1;j>=last&&jw;j--)
+	{
+		temp=sr[j];
+	 if((sr[j]>='0'&&sr[j]<='9')||(sr[j]>='A'&&sr[j]<='Z')||(sr[j]>='a'&&sr[j]<='z'))
+	 {
+		if(temp=='9')
+		{sc[m]='0';m++;}
+		else
+		if(temp=='Z')
+		{sc[m]='A';m++;}
+		else
+		if(temp=='z')
+		{sc[m]='a';m++;}
+		else
+		{
+		sc[m]=temp+1;m++;jw=0;
+		}
+	 }
+	 else
+	 {	sc[m]=sr[j];m++;}
+	}
+	if(jw)
+	  {
+	  	if(sr[last]=='z')
+	       {sc[m]='a';m++;}
+	     if(sr[last]=='Z')
+	       {sc[m]='A';m++;}  
+	       if(sr[last]=='9')
+	       {sc[m]='1';m++;}
+	       jw=0;
+	  }
+i=j+1;
+}}
+								else
+									if(temp=='z')
+									{jw=1;sc[m]='a';m++;{
+	for(j=i-1;j>=last&&jw;j--)
+	{
+		temp=sr[j];
+	 if((sr[j]>='0'&&sr[j]<='9')||(sr[j]>='A'&&sr[j]<='Z')||(sr[j]>='a'&&sr[j]<='z'))
+	 {
+		if(temp=='9')
+		{sc[m]='0';m++;}
+		else
+		if(temp=='Z')
+		{sc[m]='A';m++;}
+		else
+		if(temp=='z')
+		{sc[m]='a';m++;}
+		else
+		{
+		sc[m]=temp+1;m++;jw=0;
+		}
+	 }
+	 else
+	 {	sc[m]=sr[j];m++;}
+	}
+	if(jw)
+	  {
+	  	if(sr[last]=='z')
+	       {sc[m]='a';m++;}
+	     if(sr[last]=='Z')
+	       {sc[m]='A';m++;}  
+	       if(sr[last]=='9')
+	       {sc[m]='1';m++;}
+	       jw=0;
+	  }
+i=j+1;
+}}
+									else
+									{
+										sc[m]=temp+1;m++;
+									}
+						TF=1;
+						}
+						else
+                        {
+						sc[m]=sr[i];
+						m++;
+						}
+					}
+					sc[m]='\0';
+					int sss=0;
+					for(i=m-1;i>=0;i--)
+					{
+						sr[sss]=sc[i];sss++;
+					}
+					sr[sss]='\0';
+					printf("%s\n",sr);
+				}
+			}
+			else
+			{
+				sr[l-1]=sr[l-1]+1;
+				printf("%s\n",sr);
+			}
+			
+		}
+		
+		printf("\n");
+	}
+	return 0;
+}

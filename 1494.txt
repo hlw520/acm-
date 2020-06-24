@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+    int s,i,n,j,d,u,l;
+    while(scanf("%d%d%d",&d,&n,&u),d||n||u)
+    {
+        s=0;l=0;
+       while(l<d)
+       {
+       s++;
+       if(s%2==1)
+       {l=l+n;}
+       else
+       {l=l-u;}
+       }
+       printf("%d\n",s);
+    }
+return 0;
+}

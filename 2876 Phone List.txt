@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct in
+{
+	char str[15];
+}tel[10010];
+int cmp(const void *a,const void *b)
+{
+    return strcmp( (*(in *)a).str , (*(in *)b).str ); 
+}
+int main()
+{
+	int i,j,T,n,t,tf,k,TF,len;
+	
+	scanf("%d",&T);
+	
+	while(T--)
+	{
+		scanf("%d",&n);
+		for(i=0;i<n;i++)
+		{
+			scanf("%s",tel[i].str);
+		}
+		
+		
+		qsort(tel,n,sizeof(tel[0]),cmp);
+
+		TF=0;
+		for(i=0;i<n;i++)
+		{
+			len=strlen(tel[i].str);
+			if(strncmp(tel[i].str,tel[i+1].str,len)==0)
+				TF=1;
+			if(TF)
+				break;
+		}
+	
+	if(TF)
+		printf("NO\n");
+	else
+		printf("YES\n");
+}
+return 0;
+}

@@ -1,0 +1,52 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,T,n,maxti,t1[115],t2[115],t3[115],fei[115],hui[115],mintime;
+	int biao[115][115];
+	scanf("%d",&T);
+	while(T--)
+	{
+		scanf("%d%d",&n,&maxti);
+		for(i=0;i<n;i++)
+			scanf("%d%d%d%d%d",&t1[i],&t2[i],&t3[i],&fei[i],&hui[i]);
+		for(i=0;i<115;i++)
+			for(j=0;j<115;j++)
+				biao[i][j]=99999;
+			biao[0][maxti]=t2[0];
+			biao[0][maxti-fei[0]]=t1[0];
+			for(i=1;i<n;i++)
+			{
+				for(j=0;j<=maxti;j++)
+				{
+					if(biao[i-1][j]<99999)
+					{
+						if(biao[i][j]>(biao[i-1][j]+t2[i]))
+							biao[i][j]=biao[i-1][j]+t2[i];
+						
+						if(j>=fei[i])
+						{
+							if( biao[i][j-fei[i]]>(biao[i-1][j]+t1[i]))
+								biao[i][j-fei[i]]=biao[i-1][j]+t1[i];
+						}
+						
+						if((hui[i]+j)>=maxti)
+						{
+							if(biao[i][maxti]>(biao[i-1][j]+t3[i]))
+								biao[i][maxti]=biao[i-1][j]+t3[i];
+						}
+						else
+						{
+							if(biao[i][hui[i]+j]>(biao[i-1][j]+t3[i]))
+								biao[i][hui[i]+j]=biao[i-1][j]+t3[i];
+						}	
+					}	
+				}
+			}
+			mintime=biao[n-1][0];
+			for(i=1;i<=maxti;i++)
+				if(mintime>biao[n-1][i])
+					mintime=biao[n-1][i];
+				printf("%d\n",mintime);
+	}  
+	return 0;
+}

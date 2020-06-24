@@ -1,0 +1,136 @@
+#include<stdio.h>
+#include<math.h>
+int ss(int a)
+{
+ int i;
+ if(a!=1)
+ {
+ for(i=2;i<=sqrt(a);i++)
+     if(a%i==0)
+        return 0;
+ return 1;
+ }
+ else
+ return 0;
+}
+int rn(int b)
+{
+ if((b%400==0)||((b%4==0)&&(b%100!=0)))
+    return 1;
+ else
+    return 0;
+}
+int ts(int m1)
+{
+if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+       return 31;
+       else
+       {
+      if(m1==2)
+        return 28;
+        else
+        return 30;
+       }
+}
+int main()
+{
+	int i,j,k,y1,m1,d1,y2,m2,d2,n,nn,t,tt;
+	scanf("%d",&nn);
+	 while(nn--)
+	 {
+	 n=0;
+	 scanf("%d%d%d%d%d%d",&y1,&m1,&d1,&y2,&m2,&d2);
+	 if(y1!=y2)
+	 {
+	 for(i=(y1+1);i<y2;i++)
+	 {
+	  	    n+=52;
+	  	 if(rn(i))  
+		    n++; 
+	 }
+	 
+	 t=m1+1;
+	 switch(t)
+	 {
+	  case 1:;
+	  case 2:n+=9;
+	  case 3:n+=11;
+	  case 4:;
+	  case 5:n+=11;
+	  case 6:;
+	  case 7:n+=11;
+	  case 8:;
+	  case 9:;
+	  case 10:;
+	  case 11:n+=10;
+	 }
+	 if(m1<=2&&rn(y1))
+	   n++;
+      t=ts(m1);
+       for(i=d1;i<=t;i++)
+          if(ss(m1)&&ss(i))
+            n++;
+       t=m2-1;
+       switch(t)
+	 {
+	  case 12:;
+	  case 11:n+=10;
+	  case 10:;
+	  case 9:;
+	  case 8:;
+	  case 7:n+=11;
+	  case 6:;
+	  case 5:n+=11;
+	  case 4:;
+	  case 3:n+=11;
+	  case 2:n+=9;
+	 }
+	 if(((m2>2)||(m2==2&&d2==29))&&rn(y2))
+	   n++;
+
+       for(i=1;i<=d2;i++)
+          if(ss(m2)&&ss(i))
+            n++;
+	 }
+	 else
+	 {
+	 	if(m1!=m2)
+	 	{
+	 	t=m1+1;
+	 	tt=m2-1;
+	 	for(i=t;i<=tt;i++)
+	 	{
+	 		if(i==11)
+	 		n+=10;
+	 		if(i==7)
+	 		n+=11;
+	 		if(i==5)
+	 		n+=11;
+	 		if(i==3)
+	 		n+=11;
+	 		if(i==2)
+	 		n+=9;
+	 	}
+	 		t=ts(m1);
+	 		for(i=d1;i<=t;i++)
+               if(ss(m1)&&ss(i))
+                 n++;
+            for(i=1;i<=d2;i++)
+               if(ss(m2)&&ss(i))
+                 n++;
+            if(rn(y1)&&m1>0&&m1<3)
+              n++;
+		 
+	 	}
+	 	else
+	 	{
+		   if(ss(m1))
+		    for(i=d1;i<=d2;i++)
+		       if(ss(i))
+		           n++;	
+		 }
+	 }
+       printf("%d\n",n);
+	 }
+return 0;
+}

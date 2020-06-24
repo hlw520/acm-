@@ -1,0 +1,46 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,T,t,l,left,top,wei[11][11],tf;
+	char sr[11][11];
+	while(scanf("%d%d%d",&top,&left,&T),top||left)
+	{
+		for(i=0;i<top;i++)
+		  scanf("%s",sr[i]);
+		tf=0;
+		for(i=0;i<top;i++)
+		   for(j=0;j<left;j++)
+		      wei[i][j]=0;
+        
+        l=T-1;t=0;
+        wei[t][l]=1;
+        for(i=0;i<top*left*2;i++)
+        {
+        	switch(sr[t][l])
+        	  {
+			    case 'E':l++;break;
+			    case 'S':t++;break;
+			    case 'N':t--;break;
+			    case 'W':l--;break;
+			  }
+			  if(!(l>=0&&l<left&&t>=0&&t<top))
+			  {
+			   tf=1;break;
+			  }
+		  wei[t][l]++;
+		}
+		t=0;l=0;
+	  for(i=0;i<top;i++)
+	  {
+	    for(j=0;j<left;j++)
+	       if(wei[i][j]==1)t++;
+     	   else
+			if(wei[i][j]>1)l++;
+	  }
+	  if(tf)
+	    printf("%d step(s) to exit\n",t);
+	  else
+	   printf("%d step(s) before a loop of %d step(s)\n",t,l);
+	}
+return 0;
+}

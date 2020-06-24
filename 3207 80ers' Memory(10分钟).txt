@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char sr[110][25],sr2[110][25];
+	int i,j,n,m,k,T,mm;
+	scanf("%d",&T);
+	n=T;
+	while(n--)
+	  scanf("%s",sr[n]);
+     scanf("%d",&n);
+      while(n--)
+      {
+	    k=0;
+       scanf("%d",&m);
+       mm=m;
+	   while(mm--)
+	     scanf("%s",sr2[mm]);	
+      	for(i=0;i<m;i++)
+      	  {
+			for(j=0;j<T;j++)
+			 if(strcmp(sr[j],sr2[i])==0)
+			    k++;
+			}
+			printf("%d\n",k);
+	  }
+return 0;
+}

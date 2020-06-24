@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+	
+	char s[55];
+	int i,T,j;
+	scanf("%d",&T);
+	for(i=1;i<=T;i++)
+	{
+		scanf("%s",s);
+	 for(j=0;s[j]!='\0';j++)
+	 if(s[j]!='Z')
+	 s[j]=s[j]+1;
+	 else
+	   s[j]='A';
+	   
+	   printf("String #%d\n%s\n\n",i,s);
+	}
+	
+return 0;
+}

@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+	char sx[12][20]={"Dragon","Rabbit","Tiger","Ox","Rat","Pig","Dog","Rooster","Monkey","Ram","Horse","Snake"};
+	int i,n;
+	scanf("%d",&i);
+	while(i--)
+	{
+	 scanf("%d",&n);
+	 printf("%s\n",sx[n%12]);
+	}
+return 0;
+}

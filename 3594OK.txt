@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+  int i,j,n,T,m;
+  char nianjia[15][20]={"Jia","Yi","Bing","Ding","Wu","Ji","Geng","Xin","Ren","Gui"};
+  char niancou[15][20]={"zi","chou","yin","mao","chen","si","wu","wei","shen","you","xu","hai"};
+  scanf("%d\n",&T);
+  while(T--)
+  {
+   scanf("%d",&n);
+   if(n<0)
+    n++;
+   while(n<1984)
+    n+=60;
+    
+   m=n-1984;
+
+   printf("%s%s\n",nianjia[m%10],niancou[m%12]);
+  }
+return 0;
+}

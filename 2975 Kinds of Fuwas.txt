@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+  int i,j,k,ss[26],sum,T,n,m;
+  char s[260][260];
+  scanf("%d",&T);
+  while(T--)
+  {
+   scanf("%d%d",&n,&m);
+   for(i=0;i<n;i++)
+     scanf("%s",s[i]);
+    sum=0;
+   
+     for(i=0;i<n-1;i++)
+        {
+		for(j=i+1;j<n;j++)
+		{
+	      memset(ss,0,sizeof(ss));
+		  for(k=0;k<m;k++)
+		  {
+		   if(s[i][k]==s[j][k])
+		      ss[s[i][k]-'A']++;
+		  }
+		  sum=sum+ss['B'-'A']*(ss['B'-'A']-1)/2;
+
+		  sum=sum+ss['J'-'A']*(ss['J'-'A']-1)/2;
+	
+	   	  sum=sum+ss['H'-'A']*(ss['H'-'A']-1)/2;
+	  
+		  sum=sum+ss['Y'-'A']*(ss['Y'-'A']-1)/2;
+		   
+		  sum=sum+ss['N'-'A']*(ss['N'-'A']-1)/2;
+		 
+		  
+		}
+		
+		
+        }
+        printf("%d\n",sum);
+  }
+
+return 0;
+}

@@ -1,0 +1,34 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,T,n,t;
+	char sz[2][50];
+	scanf("%d",&T);
+	getchar();
+	t=0;
+	while(T--)
+	{
+		t++;
+		n=0;
+	 gets(sz[0]);
+	 gets(sz[1]);
+	 for(i=0;sz[0][i]!='\0';i++)
+	 {
+	  for(j=0;sz[1][j]!='\0';j++)
+	   if(sz[0][i]==sz[1][j])
+	     {
+		  sz[0][i]='0';
+		  sz[1][j]='0';
+		  break;
+		 }
+	 }
+	 for(i=0;sz[0][i]!='\0';i++)
+	    if(sz[0][i]!='0')
+	      n++;
+     for(i=0;sz[1][i]!='\0';i++)
+	    if(sz[1][i]!='0')
+	      n++;
+       printf("Case #%d:  %d\n",t,n);
+	}
+return 0;
+}

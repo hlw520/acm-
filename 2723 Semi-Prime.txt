@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+int ss[1000000]={0};
+int main()
+{
+	int i,j;
+    
+	ss[0]=1;ss[1]=1;
+             
+	for(i=2;i<1000;i++)
+	   for(j=i;i*j<1000000;j++)
+	      ss[j*i]=1;
+	      
+
+             
+     for(i=2;i<1000;i++)
+        for(j=i;i*j<1000000;j++)
+         if(ss[i]==0&&ss[j]==0)
+           ss[i*j]=2;
+           
+
+             
+     while(scanf("%d",&j)!=EOF)
+         if(ss[j]==2)
+            printf("Yes\n");
+            else
+            printf("No\n");
+return 0;
+}

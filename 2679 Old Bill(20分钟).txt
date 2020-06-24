@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+	int g,a,b,c,num,i,j,T,tf;
+	scanf("%d",&T);
+	while(T--)
+	{
+		tf=1;
+		scanf("%d%d%d%d",&g,&a,&b,&c);
+		num=a*1000+b*100+c*10;
+	for(i=9;i>0;i--)
+	{
+	  for(j=9;j>=0;j--)
+	     if((i*10000+num+j)%g==0)
+	     {
+	       printf("%d %d %d\n",i,j,(i*10000+num+j)/g);
+	       tf=0;
+	       break;
+	     }
+	     if(!(tf))
+	       break;
+	}
+	if(tf)
+	  printf("0\n");
+	}
+return 0;
+}

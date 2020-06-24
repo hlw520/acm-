@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+	int T,i,j,n,a,b,k,bb;
+	scanf("%d",&T);
+	while(T--)
+	{
+	 scanf("%d",&a);
+	 if(a<10)
+	   printf("%d\n",a);
+     else
+     {
+	  b=a;
+	  n=a%10;
+	  j=1;
+	  while(a=a/10,a)
+	  {
+	  	j++;
+	  	i=0;
+	  	k=a%10;
+	   if(n>=5)
+	   {
+	   	i=1;
+	      k++;
+	      n=k;
+	   }
+	   else
+	    n=k;  
+	    if(a<10)
+	      bb=a;
+	  }
+	  if(i)
+	    bb++;
+      for(i=1;i<j;i++)
+         bb=bb*10;
+         
+	   printf("%d\n",bb);  
+	 }
+ 
+
+	}
+return 0;
+}

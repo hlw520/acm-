@@ -1,0 +1,40 @@
+#include<stdio.h>
+
+int main()
+{
+ int i,j,k,m,max,p,T,r,maxi,nn;
+   scanf("%d",&T);
+   while(T--)
+   {
+   	max=0;p=0;
+    scanf("%d",&r);
+    scanf("%d",&max);
+    scanf("%d",&p);
+    maxi=1;
+    if(max<p)
+      {
+      	maxi=2;
+	  m=max;max=p;p=m;
+      }
+      nn=2;
+      r=r-2;
+      while(r--)
+      {
+      	nn++;
+	   scanf("%d",&m);
+	   if(m>max)
+	     {
+		  p=max;
+		  maxi=nn;
+		  max=m;
+		 }
+      if(m>p&&m<max)
+      {
+	   p=m;
+	  }
+	  }
+	  printf("%d %d\n",maxi,p);
+   }
+	
+return 0;
+}

@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+  int i,T,t;
+  char s[10][15],sc[2][15];
+  scanf("%d",&T);
+  while(T--)
+  {
+   scanf("%d",&t);
+   for(i=0;i<t;i++)
+     scanf("%s",s[i]);
+    for(i=0;i<t;i++)
+    {
+      sc[0][i]=s[i][0];
+      sc[0][i]=s[i][0];
+    }
+    sc[0][t]='\0';
+    scanf("%d",&t);
+   for(i=0;i<t;i++)
+     scanf("%s",s[i]);
+     for(i=0;i<t;i++)
+    {
+      sc[1][i]=s[i][0];
+      sc[1][i]=s[i][0];
+    }
+    sc[1][t]='\0';
+     if(strcmp(sc[0],sc[1])==0)
+       printf("SAME\n");
+     else
+      printf("DIFFERENT\n");
+  }
+	
+return 0;
+}

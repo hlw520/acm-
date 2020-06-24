@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+int cmp(const void *a,const void *b)
+{
+return *(int*)a-*(int *)b;
+}
+int main()
+{
+ int i,T,sr[501],first,now;
+ while(scanf("%d%d",&T,&first)!=EOF)
+ {
+ 	
+  for(i=0;i<T;i++)
+  {
+   scanf("%d",&sr[i]);
+  }
+  qsort(sr,T,sizeof(sr[0]),cmp);
+
+   now=0;
+   for(i=0;i<T;i++)
+  {
+   if(sr[i]>first)
+      first+=2;
+      else
+      now++;
+
+  }
+  
+   first+=now;
+
+    printf("%d\n",first);
+  
+ }
+return 0;
+}

@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,x,y,x1,y1,x2,y2;
+	while(scanf("%d%d",&x,&y),x!=0||y!=0)
+	{
+	  x1=x;x2=x;y1=y;y2=y;	
+	  while(scanf("%d%d",&x,&y),x!=0||y!=0)
+	  {
+	   if(x>x2)
+	      x2=x;
+       if(x<x1)
+	      x1=x;
+	      if(y>y2)
+	      y2=y;
+	      if(y<y1)
+	      y1=y;
+	  }
+	  printf("%d %d %d %d\n",x1,y1,x2,y2);
+	}
+return 0;
+}

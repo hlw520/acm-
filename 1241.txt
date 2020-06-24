@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int n;
+	double a,b,c,cc;
+	n=0;
+	while(scanf("%lf%lf%lf",&a,&b,&c),a||b||c)
+	{
+	 n++;
+	 if(a==-1)
+	 {
+	  if(b>c||c<=0||b<=0)
+	  printf("Triangle #%d\nImpossible.\n\n",n);
+	  else
+	  {
+	   cc=sqrt(c*c-b*b);
+	   printf("Triangle #%d\na = %.3lf\n\n",n,cc);
+	  }
+	 }
+	 else
+	 if(b==-1)
+	 {
+	 if(a>c||c<=0||a<=0)
+	  printf("Triangle #%d\nImpossible.\n\n",n);
+	  else
+	  {
+	   cc=sqrt(c*c-a*a);
+	   printf("Triangle #%d\nb = %.3lf\n\n",n,cc);
+	  }
+	 }
+	 else
+	 if(c==-1)
+	 {
+	  if(a>0&&b>0)
+	  {
+	   cc=sqrt(a*a+b*b);
+	   printf("Triangle #%d\nc = %.3lf\n\n",n,cc);
+	  }
+	  else
+	  printf("Triangle #%d\nImpossible.\n\n",n);
+	 }
+	 
+	}
+return 0;
+}

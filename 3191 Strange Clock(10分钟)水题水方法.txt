@@ -1,0 +1,80 @@
+#include<stdio.h>
+int main()
+{
+	int i;
+	while(scanf("%d",&i),i!=-1)
+	{
+	 if(i==0.000000000)
+	    printf("Exactly 3 o'clock\n");
+	       else
+	       if(i==30.0000000)
+	       printf("Exactly 2 o'clock\n");
+	       else
+	       if(i==60.0000000)
+	       printf("Exactly 1 o'clock\n");
+	       else
+	       if(i==90.0000000)
+	       printf("Exactly 0 o'clock\n");
+	       else
+	       if(i==120.0000000)
+	       printf("Exactly 11 o'clock\n");
+	       else
+	       if(i==150.0000000)
+	       printf("Exactly 10 o'clock\n");
+	       else
+	       if(i==180.0000000)
+	       printf("Exactly 9 o'clock\n");
+	       else
+	       if(i==210.0000000)
+	       printf("Exactly 8 o'clock\n");
+	       else
+	       if(i==240.0000000)
+	       printf("Exactly 7 o'clock\n");
+	       else
+	       if(i==270.0000000)
+	       printf("Exactly 6 o'clock\n");
+	       else
+	       if(i==300.0000000)
+	       printf("Exactly 5 o'clock\n");
+	       else
+	       if(i==330.0000000)
+	       printf("Exactly 11 o'clock\n");//
+	       else
+	       if(i<30.0000000)
+	       printf("Between 2 o'clock and 3 o'clock\n");
+	       else
+	       if(i<60.0000000&&i>30.0000000)
+	       printf("Between 1 o'clock and 2 o'clock\n");
+	       else
+	       if(i<90.0000000&&i>60.0000000)
+	       printf("Between 0 o'clock and 1 o'clock\n");
+	       else
+	       if(i<120.0000000&&i>90.0000000)
+	       printf("Between 11 o'clock and 0 o'clock\n");
+	       else
+	       if(i<150.0000000&&i>120.0000000)
+	       printf("Between 10 o'clock and 11 o'clock\n");
+	       else
+	       if(i<180.0000000&&i>150.0000000)
+	       printf("Between 9 o'clock and 10 o'clock\n");
+	       else
+	       if(i<210.0000000&&i>180.0000000)
+	       printf("Between 8 o'clock and 9 o'clock\n");
+	       else
+	       if(i<240.0000000&&i>210.0000000)
+	       printf("Between 7 o'clock and 8 o'clock\n");
+	       else
+	       if(i<270.0000000&&i>240.0000000)
+	       printf("Between 6 o'clock and 7 o'clock\n");
+	       else
+	       if(i<300.0000000&&i>270.0000000)
+	       printf("Between 5 o'clock and 6 o'clock\n");
+	       else
+	       if(i<330.0000000&&i>300.0000000)
+	       printf("Between 4 o'clock and 5 o'clock\n");
+	       else
+	       if(i<360.0000000&&i>330.0000000)
+	       printf("Between 3 o'clock and 4 o'clock\n");
+	}
+	return 0;
+}

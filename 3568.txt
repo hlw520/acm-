@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+	int i,j;
+	long have,need,needge;
+	long long sum;
+     while(scanf("%ld%ld%ld",&have,&need,&needge)!=EOF)
+     {
+     	sum=0;
+     	while((have+needge)>=need)
+     	{
+		 have=have-need+needge;
+		 sum+=needge;
+		 }
+     	printf("%lld\n",sum);
+	 }
+return 0;
+}

@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+	int sj[10010],i,j,TT,T,n,l,N,time,t,tt,ttt;
+	double max;
+	scanf("%d",&T);
+	while(T--)
+	{
+		ttt=0;
+	 scanf("%d%d%d",&N,&time,&l);
+	 t=N;
+	 while(t--)
+	   scanf("%d",&sj[t]);
+      for(i=0;i<N-1;i++)
+      {
+      	TT=i;
+	    for(j=i+1;j<N;j++)
+	       if(sj[TT]<sj[j])
+	         TT=j;
+        tt=sj[TT];sj[TT]=sj[i];sj[i]=tt;
+	  }
+	  max=0.0000000;
+	  for(i=0;i<N&&l>0;i++)
+	  {
+	   if(l>sj[i]*time)
+	   {
+	   l=l-sj[i]*time;max=max+time;
+	   }
+	   else
+	   {
+	   	ttt=1;
+	   	max=max+(double)l/sj[i];
+	    l=0;
+	   }
+	  
+	  }
+	  if(ttt)
+	  printf("%.2lf\n",max);
+	  else
+	  printf("-1\n");
+	}
+return 0;
+}

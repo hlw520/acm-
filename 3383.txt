@@ -1,0 +1,59 @@
+#include<stdio.h>
+int zh(char a)
+{
+	int t;
+if(a>='0'&&a<='9')
+	         t=a-'0';
+          else
+             {
+			  switch (a)
+				  {
+				  case 'A':t=10;break;
+				  case 'B':t=11;break;
+				  case 'C':t=12;break;
+				  case 'D':t=13;break;
+				  case 'E':t=14;break;
+				  case 'F':t=15;break;
+				  }
+			 }
+return t;
+}
+int main()
+{
+	int i,j,n,m,zhi[310][310],r,g,b,t,sum,avg,fz;
+	char z[310][310][10];
+	while(scanf("%d",&m)!=EOF)
+	{
+		sum=0;
+	 scanf("x%d",&n);
+	 for(i=0;i<n;i++)
+	    for(j=0;j<m;j++)
+	    {
+	      scanf("%s",z[i][j]);
+	         r=zh(z[i][j][1])*16+zh(z[i][j][2]);
+			 g=zh(z[i][j][3])*16+zh(z[i][j][4]);
+			 b=zh(z[i][j][5])*16+zh(z[i][j][6]);
+			 zhi[i][j]=(11*r+16*g+5*b)/32;
+			 sum+=zhi[i][j];
+	    }
+
+	    avg=sum/(m*n);
+	    fz=(192+avg*2)/3;
+	    printf("%dx%d\n",m,n);
+	  for(i=0;i<n;i++)
+	  {
+	    for(j=0;j<m;j++)
+	    {
+	    	if(j!=0)
+	    	printf(" ");
+	    	if(zhi[i][j]<fz)
+	    	   printf("9");
+  	        else
+  	           printf(" ");
+	    }
+	    printf("\n");
+	  }
+	}
+	
+return 0;
+}

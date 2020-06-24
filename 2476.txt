@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char sum[1000],temp[100];
+	int i,j,n,l,jw,t1,t2;
+	while(scanf("%d",&n),n)
+	{
+		jw=0;
+		memset(sum,'0',sizeof(sum));
+		sum[999]='\0';
+		sum[996]='.';
+		for(i=992;i>0;i-=4)
+		   sum[i]=',';
+		    //初始化 
+		    
+		while(n--)
+		{
+		
+			scanf("%s",temp);//输入
+			l=strlen(temp);
+			
+			//计算 
+			
+			for(i=l-1,j=998;j>10;i--,j--)
+			{
+			if(sum[j]>='0'&&sum[j]<='9')
+			{
+			 if(i>0)
+			 {t1=temp[i]-'0';}
+			 else
+			 {t1=0;}
+			 t1+=jw;
+			 
+			 t2=sum[j]-'0';
+			 t2=t1+t2;
+			 if(t2>9)
+			  jw=1;
+		      else
+		     jw=0;
+		     t2%=10;
+			 sum[j]=t2+'0';
+			}
+			}
+		}
+		//打印输出； 
+		
+		for(i=2;(sum[i]=='0'||sum[i]==',')&&i!=995;i++);
+		printf("$");
+		for(j=i;sum[j]!='\0';j++)
+		  printf("%c",sum[j]);
+		printf("\n");
+	}
+return 0;
+}

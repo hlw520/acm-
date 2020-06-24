@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int i,j,n,l;
+	char s[10000];
+	while(gets(s)!=NULL)
+	{
+		n=0;
+		l=strlen(s);
+		for(i=0;l>i;i++)
+		{
+		 if(((s[i]>='A'&&s[i]<='Z')||(s[i]>='a'&&s[i]<='z'))&&((s[i+1]>='A'&&s[i+1]<='Z')||(s[i+1]>='a'&&s[i+1]<='z')))
+		 {
+		 	printf("%c",s[i]);
+		  for(j=i+1;(s[j]>='A'&&s[j]<='Z')||(s[j]>='a'&&s[j]<='z');j++);
+		     if(j-i-2>0)
+		        printf("%d%c",j-i-2,s[j-1]);
+             else
+                printf("%c",s[j-1]);
+              i=j-1;
+		 }	
+		 else
+		 printf("%c",s[i]);
+		}
+	 printf("\n");
+	}
+return 0;
+}

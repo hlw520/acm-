@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main()
+{
+    int i,j,T,n,ge,bj,sc[100]={0};
+    
+    ge=0;bj=2;sc[1]=7;
+	 for(i=13;i<=800;i++)
+      {
+            if((i%7==0)||(i/100==7)||(i%10==7)||(i/10%10==7))
+               {
+               	
+			   ge++;
+			   if(ge==bj)
+			      {
+				  sc[bj]=i-ge+1;
+				   
+				   bj++;
+				  }
+               }
+               else
+               ge=0;
+      }
+	
+	scanf("%d",&T);
+    while(T--)
+    {
+      scanf("%d",&n);
+      printf("%d\n",sc[n]);
+    }
+    return 0;
+}

@@ -1,0 +1,64 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,needt,t1,t2,zt1,zt2,tf;
+	while(scanf("%d",&t2)!=EOF)
+	{
+	scanf("%d%d",&t1,&needt);
+    zt1=0;zt2=0;
+ if(t1!=needt&&t2!=needt)
+    while(zt1!=needt&&zt2!=needt)
+    {
+    	tf=0;
+    	zt1=t1;
+    	printf("fill B\n");
+    	zt1=zt1-(t2-zt2);zt2=t2;
+    	printf("pour B A\n");
+    	if(zt1==needt)
+    	   break;
+    	   zt2=0;
+   	   	printf("empty A\n");
+   	   	
+ 	    if(zt1>t2)
+ 	     {
+ 	     	tf=1;
+		 while(zt1>t2)
+		 {
+		  zt1=zt1-(t2-zt2);zt2=t2;
+   	      printf("pour B A\n");
+   	      if(zt1==needt)
+    	   break;
+    	   if(zt1>t2)
+		   {zt2=0;
+		   printf("empty A\n");}
+		 }
+		 }
+		 else
+		 {
+		 zt2=zt1;zt1=0;
+   	   	 printf("pour B A\n");
+		 }
+		 if(zt1!=needt)
+		 if(tf)
+		 {
+			 if(zt2!=0)
+			 {
+		     zt2=0;
+   	         printf("empty A\n");
+			 }
+
+		 zt2=zt1;zt1=0;
+   	   	 printf("pour B A\n");
+		 }
+
+         
+	}
+	if(t1==needt)
+    printf("fill B\n");
+    else
+    if(t2==needt)
+    printf("fill A\n");
+   printf("success\n");
+	}
+return 0;
+}

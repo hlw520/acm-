@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int i;
+	double V,D,d,v1,v2,v3,v4,cha,x,y;
+	while(scanf("%lf%lf",&D,&cha),D*cha!=0.0000000000)
+	{
+	 v1=3.141592654*D*D*D;
+	 v2=D*D*D/2.0*3.141592654/3.0*2.0;
+	 x=v1-v2-cha*4;
+
+     y=x/(3.141592654-1/2.0*3.141592654/3.0*2);
+    // printf("%.3lf\n",y);
+	 x=pow(y, 1.0 / 3.0);
+	 printf("%.3lf\n",x);
+	}
+return 0;
+}

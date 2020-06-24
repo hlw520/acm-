@@ -1,0 +1,89 @@
+#include<stdio.h>
+int main()
+{
+	int T,i,j,k,l,n,tf[10][10],numjl,num;
+	char sr[10][10];
+	while(scanf("%d",&T),T)
+	{
+		
+		for(i=0;i<T;i++)
+		   scanf("%s",sr[i]);
+	    for(i=0;i<T;i++)
+	       for(j=0;j<T;j++)
+	          {
+			   if(sr[i][j]=='X')
+			      tf[i][j]=0;
+                else
+                  {
+                  	numjl=1;
+				  
+				   for(k=j-1;k>=0;k--)
+				   {
+				      if(sr[i][k]=='.')
+				        numjl++;
+				        else
+				        break;
+				   }
+		           for(k=j+1;k<T;k++)
+				    {
+					  if(sr[i][k]=='.')
+				        numjl++;
+				        else
+				        break;
+				    }
+					for(k=i-1;k>=0;k--)
+				    {
+					if(sr[k][j]=='.')
+				        numjl++;
+				        else
+				        break;
+				    }
+				   for(k=i+1;k<T;k++)
+				    {
+					if(sr[k][j]=='.')
+				        numjl++;
+				        else
+				        break;
+				    }
+					tf[i][j]=numjl;
+				  }
+			  }
+           num=0;
+           for(i=1;i<=2*T;i++)
+           {
+		    for(j=0;j<T;j++)
+		      {
+			  for(k=0;k<T;k++)
+			   {
+			   if(tf[j][k]==i)
+			    {
+			    	num++;
+			    	for(l=k-1;l>=0;l--)
+			    	 if(tf[j][l]!=0)
+			    	    tf[j][l]=-1;
+			    	    else
+			    	    break;
+    	             for(l=k+1;l<T;l++)
+    	             if(tf[j][l]!=0)
+			    	    tf[j][l]=-1;
+			    	    else
+			    	    break;
+    	              for(l=j-1;l>=0;l--)
+    	                if(tf[l][k]!=0)
+    	                   tf[l][k]=-1;
+    	                   else
+    	                   break;
+ 	                   for(l=j+1;l<T;l++)
+    	                if(tf[l][k]!=0)
+    	                   tf[l][k]=-1;
+    	                   else
+    	                   break;
+			    }
+			   }
+		      }
+		     
+		   }
+		   printf("%d\n",num);
+	}
+return 0;
+}

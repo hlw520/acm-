@@ -1,0 +1,52 @@
+#include<stdio.h>
+
+int main()
+{
+	char ch[110];
+	int Z,J,G,i,tf,TF;
+	while(gets(ch)!=NULL)
+	{
+		tf=0;
+		TF=1;
+		for(i=0;ch[i]!='Z';i++)
+		{
+			if(ch[i]!='O')
+			{
+				TF=0;
+				break;
+			}
+		}
+		Z=i;
+		for(i=Z+1;ch[i]!='J';i++)
+		{
+			if(ch[i]!='O')
+			{
+				TF=0;
+				break;
+			}
+		}
+		J=i;  
+		
+		for(i=J+1;ch[i]!='\0';i++)
+		{
+			if(ch[i]!='O')
+			{
+				TF=0;
+				break;
+			}
+		}
+		G=i;   
+		if(TF)
+		{
+			if((J-Z-1==1)&&((G-J-2)==Z))
+				tf=1;
+			if((Z==0&&J==2&&G==4)||(Z!=0&&(J-Z-1)!=Z&&((G-1-J)!=Z)&&(G-1-J)!=(J-Z-1)&&((G-1-J)!=0)&&(J-1-Z)!=0))
+				tf=1;
+		}
+		if(tf)
+			printf("Accepted\n");
+		else
+			printf("Wrong Answer\n");
+	}
+	return 0;
+}

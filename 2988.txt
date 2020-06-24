@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int T,N;
+	double n,sc;
+	char sr[10];
+	N=0;
+	scanf("%d",&T);
+	while(T--)
+	{
+		N++;
+	 scanf("%lf%s",&n,sr);
+	 if(strcmp(sr,"l")==0)
+	 {
+	  sc=(double)n*0.2642;
+	  printf("%d %.4lf g\n",N,sc); 
+	 }
+	 else
+	 if(strcmp(sr,"kg")==0)
+	 {
+	 sc=(double)n*2.2046;
+	  printf("%d %.4lf lb\n",N,sc); 
+	  }
+	 else
+	 if(strcmp(sr,"lb")==0)
+	 {
+	 sc=(double)n*0.4536;
+	  printf("%d %.4lf kg\n",N,sc); 
+	 }
+	 else
+	 if(strcmp(sr,"g")==0)
+	 {
+	 sc=(double)n*3.7854;
+	  printf("%d %.4lf l\n",N,sc); 
+	  }
+	 
+	}
+return 0;
+}

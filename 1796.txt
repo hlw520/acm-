@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,a,b,c,d,e,f,gong,sc,fc,cs,ss,ff,cz;
+	while(scanf("%d%d%d%d%d%d",&a,&b,&c,&d,&e,&f),a||b||c||d||e||f)
+	{
+		gong=(a+b+c+d+e+f);
+		cs=gong/3;
+		sc=a+c+e;
+		fc=b+d+f;
+        
+        cz=sc-fc;
+   
+          
+        ss=(cs-cz)/2;
+        ff=cs-ss;
+        
+		printf("Anna's won-loss record is %d-%d.\n",ss,ff);
+	}
+return 0;
+}

@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include<math.h>
+#define Pi 3.141592653589793
+double xx(double x)
+{
+	return x*x;
+}
+int main()
+{
+    double y,x,x1,y1,x2,y2,x3,y3,a,b,c,p,s,r,mj;
+	while(scanf("%lf%lf%lf%lf%lf%lf",&x1,&y1,&x2,&y2,&x3,&y3)!=EOF)
+	{
+		a=sqrt(xx(x1-x2)+xx(y1-y2));
+		b=sqrt(xx(x2-x3)+xx(y2-y3));
+		c=sqrt(xx(x3-x1)+xx(y3-y1));
+		p=(a+b+c)/2;
+		s=sqrt(p*(p-a)*(p-b)*(p-c));
+		printf("%.2lf\n",(a*b*c/4/s)*2*Pi);//a*b*c/4/s«ÛR
+	}
+	return 0;
+}

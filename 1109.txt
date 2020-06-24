@@ -1,0 +1,51 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<string.h>
+struct name{
+char zd[15];
+char sw[15];
+}na[100100]; 
+int cmp ( const void *a , const void *b ) 
+{ 
+return strcmp( (*(name *)a).sw , (*(name *)b).sw ); 
+} 
+int main()
+{
+  char sr[25];
+  int m,n,j,i,tf,left,right,mid,ok;
+  n=-1;m=0;
+  sr[2]='1';
+ // freopen("in.txt","r",stdin);
+  while(gets(sr),sr[2]!='1')
+  {
+  	 n++;
+    sscanf(sr ,"%s%s",na[n].zd,na[n].sw);
+    sr[2]='1';
+  }
+  qsort(na,n+1,sizeof(na[0]),cmp);
+ //for(i=0;i<=n;i++)
+  //   printf("%d    na[%d].zd=%s    na[%d].sw=%s\n",i,i,na[i].zd,i,na[i].sw);
+  
+ while(gets(sr)!=NULL)
+ {
+  left=0;right=n;ok=0;
+  while(left<=right)
+  {
+   mid=(left+right)/2;
+   if(strcmp(sr,na[mid].sw)==0)
+   {
+   ok=1;break;
+   }
+  // printf("left=%d  mid=%d  right=%d\n",left,mid,right);
+   if(strcmp(sr,na[mid].sw)>0)left=mid+1;
+   if(strcmp(sr,na[mid].sw)<0)right=mid-1;
+ //  printf("left=%d  mid=%d  right=%d\n",left,mid,right);
+  }
+  if(ok)
+    printf("%s\n",na[mid].zd);
+    else
+    printf("eh\n");
+ }
+ //fclose(stdin);
+return 0;
+}

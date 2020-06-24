@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+	double s[501],d1,d2,tt;
+	int i,j,n,T,t;
+	scanf("%d",&T);
+	while(T--)
+	{
+	 scanf("%d",&n);
+	 for(i=0;i<n;i++)
+	  scanf("%lf",&s[i]);
+	 for(i=0;i<(n-1);i++)
+	 {
+	 	t=i;
+	   for(j=(i+1);j<n;j++)
+	    {
+	    	if(s[t]<s[j])
+	    	  t=j;
+		}
+		tt=s[t];
+		s[t]=s[i];
+		s[i]=tt;
+	 }
+	 if(n%2==0)
+	 printf("%0.3lf\n",(s[n/2]+s[n/2-1])/2);
+	 else
+	 printf("%.3lf\n",s[(n-1)/2]);
+	}
+return 0;
+}

@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int n,T,x,y,x1,x2,i;
+	scanf("%d",&T);
+	while(T--)
+	{
+		scanf("%d%d",&x,&y);
+		 n=0; 
+		for(i=x;i<=y;i++)
+		{
+			x1=sqrt(i%100);
+			x2=sqrt(i%1000);
+		 if(((x1*x1==(i%100))&&(x1<10&&x1>=1))||((x2*x2==(i%1000))&&(x2<=12&&x2>=1)))
+		    n++;
+		}	  
+		printf("%d\n",n);
+	}
+return 0;
+}

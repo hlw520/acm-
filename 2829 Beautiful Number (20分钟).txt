@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,n,x,y,s[100001];
+	x=3;y=5;i=1;j=1;n=1;
+	while(n!=100001)
+	{
+		if((x*i)<(y*j))
+		{
+		if((x*i)>s[n-1])
+		{
+		s[n]=x*i;
+			n++;
+		}
+		i++;
+	
+		}
+		else
+		{
+			if((y*j)>(s[n-1]))
+			{
+		s[n]=y*j;
+		n++;
+			}
+		j++;
+		
+		}
+	}
+	while(scanf("%d",&n)!=EOF)
+	   printf("%d\n",s[n]);
+return 0;
+}

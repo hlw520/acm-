@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+	int i,T,n,sr[111],m;
+	scanf("%d",&T);
+	while(T--)
+	{
+	 scanf("%d",&n);
+	 if(n==0)
+	   {
+	    scanf("%d",&sr[0]);
+	    printf("0\n");
+	   }
+	   else
+	   {
+	    for(i=0;i<=n;i++)
+	      scanf("%d",&sr[i]);
+	      m=n;
+	      printf("%d",sr[0]*(m--));
+	      for(i=1;i<n;i++)
+	        printf(" %d",sr[i]*(m--));
+	        printf("\n");
+	   }
+	}
+return 0;
+}

@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+	int i,m,n,T;
+	double sc;
+	scanf("%d",&T);
+	for(i=1;i<=T;i++)
+	   {
+	    scanf("%d%d",&m,&n);
+	    sc=(double)m*(double)n;
+	    if(m%2==1&&n%2==1)
+	       printf("Scenario #%d:\n%.2lf\n",i,sc+0.41);
+        else
+           printf("Scenario #%d:\n%.2lf\n",i,sc);
+        printf("\n");
+	   
+	   }
+return 0;
+}

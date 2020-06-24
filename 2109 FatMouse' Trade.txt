@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,n,m,t,temp,f[1111],jj[1111];
+	double x[1111],tt,sum;
+	while(scanf("%d%d",&m,&n),n!=-1||m!=-1)
+	{
+	 for(i=0;i<n;i++)
+	 {
+	  scanf("%d%d",&jj[i],&f[i]);
+	    x[i]=(double)f[i]/jj[i];
+	 }
+	 
+	 for(i=0;i<n-1;i++)
+	 {
+	 	t=i;
+	   for(j=i+1;j<n;j++)
+	    if(x[t]>x[j])
+	      t=j;
+        temp=f[t];f[t]=f[i];f[i]=temp;
+        temp=jj[t];jj[t]=jj[i];jj[i]=temp;
+        tt=x[t];x[t]=x[i];x[i]=tt; 
+	 }
+	 sum=0.00000000000000000;
+	 for(i=0;m>0&&i<n;i++)
+	   if(m>f[i])
+	   {
+	   sum=sum+jj[i];m=m-f[i];
+	   }
+	   else
+	   {
+	   	sum=sum+m*((double)jj[i]/f[i]);
+	    m=0;
+	   }
+	   printf("%.3lf\n",sum);
+	}
+return 0;
+}

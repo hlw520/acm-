@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+ int j,i,k,n,T,m,num,s[110],t;
+ char sr[110][60],ss[60];
+ scanf("%d",&T);
+ while(T--)
+ {
+  scanf("%d%d",&n,&m);
+  for(i=0;i<m;i++)
+     scanf("%s",sr[i]);
+ 
+  for(i=0;i<m;i++)
+  {
+   s[i]=0;
+   for(j=0;j<n;j++)
+	   for(k=j;k<n;k++)
+	     if(sr[i][j]>sr[i][k])
+	       s[i]++;
+  }
+   for(i=0;i<m-1;i++)
+   {
+    num=i;
+    for(j=i+1;j<m;j++)
+        if(s[num]>s[j])
+          num=j;   
+     t=s[num];s[num]=s[i];s[i]=t;
+     strcpy(ss,sr[num]);strcpy(sr[num],sr[i]);strcpy(sr[i],ss);
+   }
+   for(i=0;i<m;i++)
+      printf("%s\n",sr[i]);
+      if(T!=0)
+   printf("\n");
+ }
+return 0;
+}

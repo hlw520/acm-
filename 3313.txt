@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+	int T;
+	double sr,sc;
+	scanf("%d",&T);
+	while(T--)
+	{
+	 scanf("%lf",&sr);
+
+	 printf("%.2lf\n",sr/180*86400.00);
+	}
+return 0;
+}

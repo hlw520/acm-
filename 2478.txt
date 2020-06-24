@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main()
+{
+  int i,T,n,ss[100];
+  char s[110],sc[110],t;
+  scanf("%d",&T);
+  while(T--)
+  {
+   scanf("%s",s);
+   n=0;sc[0]=s[0];ss[0]=1;
+   for(i=1;s[i]!='\0';i++)
+    {
+	 if(sc[n]==s[i])
+	   ss[n]++;
+	   else
+	   {
+	    n++;
+	    sc[n]=s[i];ss[n]=1;
+	   }
+	}
+	for(i=0;i<=n;i++)
+	{
+	  if(ss[i]!=1)
+	   printf("%d",ss[i]);
+	   printf("%c",sc[i]);
+	}
+	   printf("\n");
+  }
+	
+return 0;
+}

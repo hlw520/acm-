@@ -1,0 +1,50 @@
+#pragma warning(disable:4786)
+#include <set>
+#include <map>
+#include <cstdio>
+using namespace std;
+
+int main(void)
+{
+    int n, i, t,sum,mm;
+    set <int> s;
+    set <int>::iterator it;
+    map <int, int> m;
+    map <int, int>::iterator iter;
+    scanf("%d",&mm);
+    while(mm--)
+    {
+    scanf("%d", &n);
+    {
+    	sum=0;
+        s.clear();
+        m.clear();
+        for (i = 0; i < n; i++)
+        {
+            scanf("%d", &t);
+            s.insert(t);
+            m[t]++;
+        }
+     }
+     scanf("%d", &n);
+    {
+    	
+        for (i = 0; i < n; i++)
+        {
+            scanf("%d", &t);
+            s.insert(t);
+            m[t]++;
+        }
+     }
+        for (it = s.begin(); it != s.end(); it++)
+        {
+            if (m[*it] == 2)
+            {
+                sum++;
+            }
+        }
+        printf("%d\n",sum);
+    
+    }
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+	int i,a,m,T,tf;
+	scanf("%d",&T);
+	while(T--)
+	{
+	 scanf("%d%d",&a,&m);
+	 tf=0;
+	 if(m!=1)
+	 {
+	 for(i=1;i<=m;i++)
+	    if(i*a%m==1)
+	    {tf=1;
+		 break;
+		}
+	 }
+		else
+		{
+		 i=1;tf=1;
+		}
+		if(tf)
+		 printf("%d\n",i);
+		 else
+		 printf("Not Exist\n");
+	}
+return 0;
+}

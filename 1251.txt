@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i,j,k,gs[55],cs[55],sum,ng,nc,min,xx,ps,avg,t,temp,nn,nnn;
+    nnn=0;
+    while(scanf("%d",&nn),nn)
+    {
+
+
+        t=nn;
+        nnn++;
+        sum=0;
+        ng=-1;
+        while(t--)
+        {
+            ng++;
+        scanf("%d",&gs[ng]);
+        sum+=gs[ng];
+        }
+        avg=sum/nn;
+        min=0;
+        for(i=0;i<nn;i++)
+        {
+    
+         if(gs[i]>avg)
+           min=gs[i]-avg+min;
+           
+         
+        }
+                     
+    printf("Set #%d\nThe minimum number of moves is %d.\n\n",nnn,min);
+    }
+return 0;
+}

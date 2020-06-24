@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+   int T;
+   double a,b,c,d,e,f;
+     scanf("%d",&T);
+     while(T--)
+     {
+	  scanf("%lf%lf%lf%lf%lf%lf",&a,&b,&c,&d,&e,&f);
+	    if(a==0||c==0)
+	      printf("parabola\n");
+	      else
+	      if(a==c)
+	      printf("circle\n");
+	      else
+	      if(a*c<0)
+	      printf("hyperbola\n");
+	      else
+	      printf("ellipse\n");
+	 
+	 }
+return 0;
+}

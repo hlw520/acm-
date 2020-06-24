@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+	double sr,t;
+	int i;
+	while(scanf("%lf",&sr)!=EOF)
+	{
+	 i=11;
+	 while(i--)
+	    {
+		scanf("%lf",&t);
+		sr+=t;
+		}
+		printf("$%.2lf\n",sr/12);
+	}
+return 0;
+}

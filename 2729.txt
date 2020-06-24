@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,n,T,N,sr,sc[200000],sum,er[20]={32768,16384,8192,4096,2048,1024,512,256,128,64,32,16,8,4,2,1},t;
+	while(scanf("%d",&T),T!=-1)
+	{
+
+		N=T*16;t=0;
+		for(i=0;i<T;i++)
+		{
+			scanf("%d",&sr);
+			for(j=0;j<16;j++)
+			    if(sr>=er[j])
+			    {
+			       sc[t+j]=1;
+			       sr-=er[j];
+			    }
+			    else
+			      sc[t+j]=0;
+			   t+=16;
+		}
+		sum=0;
+		for(i=0;i<N;i+=7)
+		{
+		 if(sc[i]==1)
+		 {
+		 	for(j=1;j<=6;j++)
+		 	  if(sc[i+j]==1)
+		 	     sum-=er[9+j];
+		 }
+		 else
+		 {
+		  for(j=1;j<=6;j++)
+		 	  if(sc[i+j]==1)
+		 	     sum+=er[9+j];
+		 }
+		}
+	 printf("%d\n",sum);
+	}
+return 0;
+}

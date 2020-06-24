@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int cmp( const void *a,const void *b)
+{
+return *(int*)b-*(int*)a;
+}
+
+int main()
+{
+	int i,max,jg[20010],mm,j,T,n,nn,t,temp;
+	
+	scanf("%d",&T);
+	while(T--)
+	{
+		mm=0;
+		scanf("%d",&n);
+		nn=n;
+		while(nn--)
+		{
+		  scanf("%d",&jg[nn]);
+		  mm=mm+jg[nn];
+		}
+        qsort(jg,n,sizeof(jg[0]),cmp);
+		max=0;
+		for(i=0;i<n;i++)
+		 {
+		  if((i+1)%3!=0)
+		     max=max+jg[i];
+		  
+		 }
+        printf("%d\n",mm-max);
+	}
+return 0;
+}

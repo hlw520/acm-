@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+	int sr[1000002],i;
+	sr[0]=7;sr[1]=2;
+	for(i=2;i<1000002;i++)
+	{
+	 sr[i]=sr[i-1]+sr[i-2];
+	 while(sr[i]>10)
+	 {
+	  sr[i]=sr[i]/10+sr[i]%10;
+	 }
+	}
+	while(scanf("%d",&i)!=EOF)
+	   if(sr[i]%3==0)
+	      printf("yes\n");
+	      else
+	      printf("no\n");
+	
+return 0;
+}

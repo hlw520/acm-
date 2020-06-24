@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+ int i,j,k,l,n,m,len1,len2,ge,xx,tf,d;
+ char nei[110][100],temp[100];
+ d=0;
+   while(scanf("%d",&n)!=EOF)
+   {
+   	d++;
+   	if(d!=1)
+   	   printf("\n");
+      for(i=0;i<n;i++)
+         scanf("%s",nei[i]);
+      scanf("%d",&m);
+      while(m--)
+      {
+      	scanf("%s",temp);
+      	len2=strlen(temp);
+      	for(i=0;i<len2;i++)
+      	  if(temp[i]=='*')
+      	    {xx=i;break;}
+      	ge=0;
+      	for(i=0;i<n;i++)
+      	{
+      		
+      		len1=strlen(nei[i]);
+      		if(len1>=(len2-1))
+      		{
+			  tf=1;
+		  for(j=0;j<xx;j++)
+		  if(temp[j]!=nei[i][j])
+		    {tf=0;break;}
+		  
+		  for(k=len1-1,l=len2-1;temp[l]!='*';k--,l--)
+        	  if(temp[l]!=nei[i][k])
+		    {tf=0;break;}
+          if(tf)
+          {
+		   ge++;
+		   if(ge==1)
+		      printf("%s",nei[i]);
+		      else
+		      printf(", %s",nei[i]);
+		  }
+      		}
+	    }
+	    if(ge==0)
+	      printf("FILE NOT FOUND");
+	   printf("\n");
+	  }
+  
+   }
+ 
+return 0;
+}

@@ -1,0 +1,52 @@
+#include<stdio.h>
+int main()
+{
+  int i,j,T,n,m,E,hf,jl[510][510],min,minjl,x,y,mins,xxx,ng,cz[510],N;
+  scanf("%d",&T);
+  while(T--)
+  {
+   scanf("%d%d",&N,&E);
+   for(i=0;i<N;i++)
+   {
+      cz[i]=1;
+      for(j=0;j<N;j++)
+         jl[i][j]=1200;
+   }
+   for(i=0;i<E;i++)
+   {
+   	scanf("%d%d%d",&m,&n,&hf);
+    jl[m][n]=hf;
+    jl[n][m]=hf;
+   }
+   minjl=0;
+   min=0;
+   for(i=1;i<N;i++)
+     if(jl[0][i]<jl[0][min])
+        min=i;
+     cz[0]=0;cz[min]=0;
+     minjl=jl[0][min];
+    ng=2;
+    while(ng!=N)
+    {
+    	mins=1200;
+	  for(i=0;i<N;i++)
+	  {
+	    if(cz[i]==0)
+	    {
+		 for(j=0;j<N;j++)
+		  {
+		   if(jl[i][j]<mins&&cz[j]&&i!=j)
+		     {
+			  mins=jl[i][j];x=i;y=j;
+		     }
+		  }
+		}
+	  }
+	  minjl=minjl+mins;
+	  cz[x]=0;cz[y]=0;
+	  ng++;
+	}
+	printf("%d\n",minjl);
+  }
+return 0;
+}

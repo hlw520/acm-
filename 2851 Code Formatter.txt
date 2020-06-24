@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+	int i,j,tab,pc,T,l,temp;
+	char sr[110][500];
+	scanf("%d",&T);
+	getchar();
+	while(T--)
+	{
+		i=-1;pc=0;tab=0;
+	 while(i++,gets(sr[i]),strcmp(sr[i],"##")!=0)
+	 {
+
+	 	l=strlen(sr[i]);
+	 	temp=0;
+	  for(j=l-1;j>=0;j--)
+	  {
+	   if(sr[i][j]==' '&&temp==0)
+	     pc++;
+	     else
+       if(sr[i][j]=='\t'&&temp==0)
+       {
+	     pc+=4;
+       }
+       else
+         temp=1;
+       if(sr[i][j]=='\t')
+        tab++;
+	  }
+	  
+	 }
+	 printf("%d tab(s) replaced\n%d trailing space(s) removed\n",tab,pc);
+	}
+	return 0;
+} 

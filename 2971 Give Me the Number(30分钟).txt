@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i,j,n,m,T,sum,s,tf;
+	char sz[20][20],sr[200];
+	char shuz[30][20]={"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen","nineteen"};
+    char sss[15][20]={"  ","   ","twenty", "thirty","forty", "fifty", "sixty", "seventy", "eighty","ninety" };
+   scanf("%d",&T);
+   getchar();
+   while(T--)
+   {
+    gets(sr);
+    m=0;n=0;
+    sum=0;
+    for(i=0;sr[i]!='\0';i++)
+     {
+	  if(sr[i]!=' ')
+	  {
+	  sz[n][m]=sr[i];m++;
+	  }
+	  else
+	  {
+	  sz[n][m]='\0';m=0;n++;
+	  }
+	 }
+     sz[n][m]='\0';
+     s=0;
+     for(i=0;i<=n;i++)
+        {
+        	tf=1;
+		if(strcmp(sz[i],"and")!=0)
+		 if(strcmp(sz[i],"million")==0)
+		 {sum=sum+s*1000000;s=0;}
+		 else
+		 if(strcmp(sz[i],"thousand")==0)
+		 {sum=sum+s*1000;s=0;}
+		 else
+		 {
+		   if(strcmp(sz[i],"hundred")==0)
+		   {s=s*100;}
+		   else
+		   {
+		     for(j=0;j<=19;j++)
+		        {
+				 if(strcmp(sz[i],shuz[j])==0)
+				    {
+					s=s+j;tf=0;
+					break;
+					}
+				}
+				if(tf)
+				for(j=2;j<=9;j++)
+		        {
+				 if(strcmp(sz[i],sss[j])==0)
+				    {
+					s=s+j*10;tf=0;
+					break;
+					}
+					tf=1;
+				}
+		   }	 
+		 }		
+		}
+
+		   printf("%d\n",s+sum);
+		  
+		   
+   }
+
+return 0;
+}

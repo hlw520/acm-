@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i,j,k,sr1len,T,sr2len,h,ge1,ge2,qian,where;
+    char sr1[30],sr2[200],sc[200][200],temp;
+    scanf("%d",&T);
+    while(T--)
+    {
+   	  for(i=0;i<200;i++)
+   	     for(j=0;j<200;j++)
+   	        sc[i][j]='\0';
+     scanf("%s",sr1);
+     scanf("%s",sr2);
+     sr1len=strlen(sr1);
+     sr2len=strlen(sr2);
+     ge2=sr2len/sr1len;
+     if(sr2len%sr1len==0)
+     {
+     ge1=ge2;
+     qian=sr1len;
+     }
+     else
+     {
+     ge1=ge2+1;
+     qian=sr2len%sr1len;
+     }
+     h=0;
+    
+        for(i=0;i<ge2;i++)
+           if(i!=ge2-1)
+           sc[i][sr1len]='\0';
+           else
+           sc[i][qian]='\0';
+    for(i=0;sr2[i]!='\0';)
+     {
+        temp='z';
+      for(k=0;k<sr1len;k++)
+        if(temp>sr1[k])
+        {
+         temp=sr1[k];where=k;
+        }
+       
+        sr1[where]='z';
+         if(where<qian)
+         {
+         for(j=0;j<ge1;j++)
+           {
+              sc[j][where]=sr2[i]+32;      i++;
+           }
+         }
+         else
+         {
+            for(j=0;j<ge2;j++)
+           {
+              sc[j][where]=sr2[i]+32;    i++;
+           }
+         }
+     }
+     for(i=0;i<=ge2;i++)
+            printf("%s",sc[i]);
+            printf("\n");
+    }
+return 0;
+}

@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i,n,j,T,len,m,temp,t,tf,t1,t2;
+    char sr[300],sc[30000];
+    scanf("%d",&T);
+    while(T--)
+    {
+     memset(sc,'0',sizeof(sc));
+     sc[29999]='\0';
+
+      while(scanf("%s",sr),sr[0]!='0'||sr[1]!='\0')
+      {
+        t=0;
+       len=strlen(sr);
+       for(i=(len-1),j=29998;j>=0;i--,j--)
+       {
+        if(i>=0)
+        t1=(sr[i]-'0');
+        else
+        t1=0;
+        temp=(sc[j]-'0')+t1+t;
+        if(temp>9)
+         t=1;
+         else
+         t=0;
+         temp=temp%10;
+         sc[j]=temp+'0';
+       }
+
+
+      }
+      tf=1;
+      for(i=0;sc[i]=='0';i++);
+      for(j=i;sc[j]!='\0';j++)
+      {
+        printf("%c",sc[j]);
+        tf=0;
+      }
+      if(tf)
+       printf("0");
+        printf("\n");
+
+     if(T)
+      printf("\n");
+    }
+    return 0;
+}

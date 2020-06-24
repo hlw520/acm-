@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char mw[210],zw[210],kk[11],ks[6]="START",js[4]="END",djs[11]="ENDOFINPUT";
+    int i,j,k,n;
+    while(scanf("%s",kk),strcmp(kk,djs)!=0)
+    {
+        getchar();
+      gets(zw);
+      scanf("%s",kk);
+
+      for(i=0;zw[i]!='\0';i++)
+        if(zw[i]>='A'&&zw[i]<='Z')
+        {
+            switch(zw[i])
+            {
+                case 'A':mw[i]='V';break;
+                case 'B':mw[i]='W';break;
+                case 'C':mw[i]='X';break;
+                case 'D':mw[i]='Y';break;
+                case 'E':mw[i]='Z';break;
+                default:mw[i]=zw[i]-5;break;
+            }
+        }
+         else
+           mw[i]=zw[i];
+           mw[i]='\0';
+      printf("%s\n",mw);
+    }
+return 0;
+}

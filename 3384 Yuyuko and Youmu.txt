@@ -1,0 +1,67 @@
+#include<stdio.h>
+
+int main()
+{
+	int i,j,n,c1[1111],zb[1111],xq,sc[1111],tf,zg,zg2;
+	while(scanf("%d",&n)!=EOF)
+	{
+		zg=0;
+		tf=1;
+		xq=0;
+	 for(i=0;i<n;i++)
+	 {
+	 scanf("%d",&c1[i]);
+	 zg+=c1[i];
+	 }
+	 for(i=0;i<n;i++)
+	 {
+	 scanf("%d",&zb[i]);
+	 }
+	 for(i=n-1;i>=0;i--)
+	 {
+	   if(zb[i]>=c1[i]&&xq==0)
+	     {
+		 sc[i]=c1[i];
+		 }
+	     else
+	     if(zb[i]<c1[i])
+		 {
+		 xq=c1[i]+xq-zb[i];
+		 sc[i]=zb[i];
+		 }
+		 else
+	     	if(xq+c1[i]>=zb[i])
+	     	{
+		     xq=c1[i]+xq-zb[i];
+		     sc[i]=zb[i];
+	     	}
+	     	else
+	     	{
+			 sc[i]=c1[i]+xq;xq=0;
+			 }
+		 }
+	 zg2=0;
+	for(i=0;i<n;i++)
+	{
+	   if(zb[i]<sc[i])
+	      tf=0;
+	      zg2+=sc[i];
+	}
+	
+	if(tf&&zg2==zg)
+	{
+	for(i=0;i<n;i++)
+	{
+	if(i!=0)
+	  printf(" ");
+	  printf("%d",sc[i]);
+	}
+	}
+	else
+	printf("Myon");
+	printf("\n");
+	
+	
+	}
+return 0;
+}
